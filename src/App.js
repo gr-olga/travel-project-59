@@ -9,7 +9,9 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <img className="App-logo" src={logo}/>
+                <a href='/'>
+                    <img className="App-logo" src={logo}/>
+                </a>
                 <p>LogIn</p>
             </header>
             <h2> Choose the city </h2>
