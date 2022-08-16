@@ -1,0 +1,8 @@
+.details-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.description-box{
+margin-left: 10px;
+}
