@@ -1,0 +1,23 @@
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 282px);
+    grid-template-rows: repeat(auto-fill, 362px);
+    row-gap: 20px;
+    column-gap: 17px;
+    justify-content: center;
+}
+
+.card {
+    max-width: 282px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.attract-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

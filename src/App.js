@@ -1,6 +1,8 @@
 import './App.css';
 import logo from "./picture/icons8-альпы-40.png"
 import PlacePage from "./components/PlacePage/PlacePage";
+import {Route, Routes} from "react-router-dom";
+import Attraction from "./components/Attraction/Attraction";
 
 function App() {
     return (
@@ -10,8 +12,11 @@ function App() {
                 <p>LogIn</p>
             </header>
             <h2> Choose the city </h2>
+            <Routes>
+                <Route path='/' element={<PlacePage/>}/>
+                <Route path='/:city' element={<Attraction/>}/>
 
-            <PlacePage/>
+            </Routes>
         </div>
     );
 }
