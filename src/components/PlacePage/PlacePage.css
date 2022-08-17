@@ -18,9 +18,16 @@
     align-self: center;
 }
 
+.place-pic{
+    width: 70%;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
 
-
-
+.city-box{
+    display: flex;
+    flex-direction: column;
+}
 
 .custom-dropdown {
     position: relative;
@@ -30,7 +37,7 @@
 }
 
 .custom-dropdown select {
-    background-color: #1abc9c;
+    background-color: #5470bb;
     color: #fff;
     font-size: inherit;
     padding: .5em;
