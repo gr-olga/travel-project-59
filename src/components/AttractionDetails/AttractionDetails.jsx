@@ -1,9 +1,10 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import "./AttractionDetails.css"
 import axios from "axios";
 import {useEffect, useState} from "react";
 
 export default function AttractionDetails() {
+    let navigate = useNavigate();
     const params = useParams();
     const [details, setDetails] = useState()
 
@@ -31,11 +32,12 @@ export default function AttractionDetails() {
                          src={details.image}/>
                     <div className="description-box">
                         <p>{details.description}</p>
-                        <a>{details.link}</a>
+                        <a className="details-link" href={details.link}>{details.link}</a>
                     </div>
                 </div>
             </>
             }
+            <button className="back-btn" onClick={() => navigate(-1)}>Go back</button>
         </div>
     )
 }
