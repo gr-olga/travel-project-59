@@ -14,7 +14,6 @@ function App() {
                 </a>
                 <p>LogIn</p>
             </header>
-            <h2> Choose the city </h2>
             <Routes>
                 <Route path='/' element={<PlacePage/>}/>
                 <Route path='/:city' element={<Attraction/>}/>

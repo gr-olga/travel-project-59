@@ -3,12 +3,13 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 export default function PlacePage() {
-    // const cities = [
-    //     {id: 1, name: "Rome"},
-    //     {id: 2, name: "Amsterdam"},
-    //     {id: 3, name: "London"},
-    //     {id: 4, name: "Barcelona"},
-    // ]
+    const cities = [
+        {id: 0, name: "choose city"},
+        {id: 1, name: "Rome"},
+        {id: 2, name: "Amsterdam"},
+        {id: 3, name: "London"},
+        {id: 4, name: "Barcelona"},
+    ]
     const [list, setList] = useState([])
 
     async function getList() {
@@ -35,13 +36,13 @@ export default function PlacePage() {
 
     return (
         <div className="home-place-box">
+            <h2> Choose the city </h2>
             <section>
                 <span className="custom-dropdown big">
                 <select onChange={changeSorting}>
-                    {list && list.map((item, i) => {
+                    {cities.map((item, i) => {
                         return (
                             <option key={i} value={item.name}>{item.name}</option>
-
                         )
                     })}
                 </select>
@@ -52,10 +53,7 @@ export default function PlacePage() {
                 <div className="city-box">
                     <span className="place-des">{citiesSorted[0].description}</span>
                     <a href={`./${cityName}`}> <img className="place-pic" src={citiesSorted[0].image} alt="pic"/></a>
-                </div> :
-                <div className="city-box">
-                    choose the city
-                </div>
+                </div> : <p>"you can choose city"</p>
             }
         </div>
     )
