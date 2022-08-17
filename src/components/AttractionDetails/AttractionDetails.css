@@ -55,3 +55,6 @@
     text-decoration: none;
     text-transform: uppercase;
 }
+.details-link:hover{
+    color: #ecc1e8;
+}
