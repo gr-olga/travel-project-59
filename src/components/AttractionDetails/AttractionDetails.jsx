@@ -1,17 +1,41 @@
 import {useParams} from "react-router-dom";
 import "./AttractionDetails.css"
+import axios from "axios";
+import {useEffect, useState} from "react";
 
 export default function AttractionDetails() {
     const params = useParams();
+    const [details, setDetails] = useState()
+
+    console.log(params.id, "params");
+
+    async function getDetails() {
+        const res = await axios.get(
+            `http://localhost:4000/places/details/${params.id}`
+        );
+        console.log("res", res);
+        return res
+    }
+
+    useEffect(() => {
+        getDetails().then(r => setDetails(r.data))
+    }, [])
+
     return (
         <div className="details-box">
-            <h2>{params.city.id}</h2>
-            <img className="details-pic"
-                 src={"https://i.pinimg.com/564x/f7/6d/6f/f76d6f245da5b43597ce00d79f20097d.jpg"}/>
-            <div className="description-box">
-                <p>Descriptionk`drgh `.jgb`.m `g`.gh.j WgWghadrgher</p>
-                <a>Link</a>
-            </div>
+            {details &&
+            <>
+                <h2>{details.name}</h2>
+                <div className="description-data">
+                    <img className="description-pic"
+                         src={details.image}/>
+                    <div className="description-box">
+                        <p>{details.description}</p>
+                        <a>{details.link}</a>
+                    </div>
+                </div>
+            </>
+            }
         </div>
     )
 }

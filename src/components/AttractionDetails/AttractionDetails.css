@@ -1,8 +1,19 @@
-.details-box{
+.details-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.description-box {
+    margin-left: 10px;
+}
+
+.description-pic {
+    max-width: 50%;
+}
+
+.description-data {
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
-.description-box{
-margin-left: 10px;
 }

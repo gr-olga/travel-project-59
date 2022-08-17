@@ -1,26 +1,37 @@
 import {useParams} from "react-router-dom";
 import "./Attraction.css"
+import axios from "axios";
+import {useEffect, useState} from "react";
 
 export default function Attraction() {
-    const attract = [
-        "https://i.pinimg.com/564x/ed/ec/80/edec80f9bdda13f40296d5cf79d2fec5.jpg",
-        "https://i.pinimg.com/564x/07/72/81/077281d2aa08cd0a64e4f404bdbe3513.jpg",
-        "https://i.pinimg.com/564x/f7/6d/6f/f76d6f245da5b43597ce00d79f20097d.jpg",
-        "https://i.pinimg.com/564x/af/4e/ed/af4eedfc9baf7d997d870540bb15692d.jpg",
-        "https://i.pinimg.com/564x/c5/6f/8f/c56f8ff46321136761a713cb5b920c25.jpg"
-    ]
+
+    const [attr, setAttr] = useState()
     const params = useParams();
-    console.log(params);
+
+    console.log(params.city);
+
+    async function getAttractions() {
+        const res = await axios.get(
+            `http://localhost:4000/places/${params.city}`
+        );
+        console.log("res", res);
+        return res
+        // setList(res.data)
+    }
+
+    useEffect(() => {
+        getAttractions().then(r => setAttr(r.data.placeDetails))
+    }, [])
+
     return (
         <div className="attract-box">
             <p>hi</p>
             <p>{params.city}</p>
             <div className="cards-grid">
-                {attract.map((item, index) => {
+                {attr && attr.map((item, index) => {
                     return (
                         <>
-                            <p> name of attraction</p>
-                            <img className="card" src={item} key={index}/>
+                            <a href={`/${params.city}/${item.id}`}> <img className="card" src={item.image} key={index}/></a>
                         </>
                     )
                 })}
@@ -28,3 +39,5 @@ export default function Attraction() {
         </div>
     )
 }
+
+//postgres://vlrdsado:G8SPV8DC2irijhUTp095DPZcKes9QgOv@abul.db.elephantsql.com/vlrdsado
