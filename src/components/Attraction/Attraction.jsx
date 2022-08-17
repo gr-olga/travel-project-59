@@ -17,8 +17,11 @@ export default function Attraction() {
             <p>{params.city}</p>
             <div className="cards-grid">
                 {attract.map((item, index) => {
-                    return(
-                    <img className="card" src={item} key={index}/>
+                    return (
+                        <>
+                            <p> name of attraction</p>
+                            <img className="card" src={item} key={index}/>
+                        </>
                     )
                 })}
             </div>
