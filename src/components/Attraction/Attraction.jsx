@@ -25,14 +25,16 @@ export default function Attraction() {
 
     return (
         <div className="attract-box">
-            <p>hi</p>
-            <p>{params.city}</p>
+            <p className="city-name">{params.city}</p>
             <div className="cards-grid">
                 {attr && attr.map((item, index) => {
                     return (
-                        <>
-                            <a href={`/${params.city}/${item.id}`}> <img className="card" src={item.image} key={index}/></a>
-                        </>
+                        <div className="card">
+                            <p className="card-title">{item.name}</p>
+                            <a href={`/${params.city}/${item.id}`}>
+                                <img className="card-image" src={item.image} key={index}/>
+                            </a>
+                        </div>
                     )
                 })}
             </div>
