@@ -55,7 +55,7 @@ export default function PlacePage() {
                     <a href={`./${cityName}`}> <img className="place-pic" src={citiesSorted[0].image} alt="pic"/></a>
                 </div> :
                 <div className="city-box">
-                    <p>"you can choose city"</p>
+                    {/*<p>you can choose city</p>*/}
                     <img className="place-pic"
                          src="https://i.pinimg.com/564x/a6/ac/ce/a6acce94f0fef1c157d1729528f7917d.jpg" alt="pic"/>
                 </div>
