@@ -3,13 +3,15 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 export default function PlacePage() {
-    const cities = [
-        {id: 0, name: "choose city"},
-        {id: 1, name: "Rome"},
-        {id: 2, name: "Amsterdam"},
-        {id: 3, name: "London"},
-        {id: 4, name: "Barcelona"},
-    ]
+    // const cities = [
+    //     {id: 0, name: "choose city"},
+    //     {id: 1, name: "Rome"},
+    //     {id: 2, name: "Amsterdam"},
+    //     {id: 3, name: "London"},
+    //     {id: 4, name: "Barcelona"},
+    //     {id: 4, name: "Budapest"},
+    //     {id: 4, name: "Lisbon"},
+    // ]
     const [list, setList] = useState([])
 
     async function getList() {
@@ -22,10 +24,11 @@ export default function PlacePage() {
 
     useEffect(() => {
         getList().then((r) => setList(r.data))
-        // setList(res.data);
     }, []);
+    const cities = list.filter((i) => i.name)
 
     console.log("list", list);
+    console.log("cities", cities);
     const [cityName, setCityName] = useState()
     const changeSorting = event => {
         console.log("new sort order:", event.target.value);
